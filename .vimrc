@@ -29,6 +29,7 @@ set noswapfile
 set number
 set smarttab
 set undofile
+set incsearch
 
 set backspace=2
 set encoding=UTF-8
