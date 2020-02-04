@@ -60,6 +60,7 @@ let g:ctrlp_working_path_mode='w'
 " nerdtree
 let g:NERDTreeNodeDelimiter = "\u00a0"
 let NERDTreeShowHidden=1
+let NERDTreeHighlightCursorline=0
 
 " lightline
 let g:lightline = {
