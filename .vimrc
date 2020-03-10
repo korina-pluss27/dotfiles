@@ -18,7 +18,21 @@ call plug#end()
 " lightline
 let g:lightline = {
       \ 'colorscheme': 'jellybeans',
+      \ 'active': {
+      \   'right': [ [ 'lineinfo' ],
+      \              [ 'filetype' ] ],
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'relativepath', 'custom_modified' ] ],
+      \   },
+      \ 'component_function' : {
+      \   'custom_modified' : 'LightlineModified'
+      \   }
       \ }
+
+function! LightlineModified ()
+  let modified = &modified ? '!!!!!' : ''
+    return modified
+endfunction
 
 if &term =~ '256color'
     " disable Background Color Erase (BCE) so that color schemes
@@ -49,9 +63,6 @@ set foldmethod=indent
 set laststatus=2
 set expandtab
 set shiftwidth=2
-set showtabline=2
-set softtabstop=2
-set tabstop=2
 set timeoutlen=1000
 set ttimeoutlen=0
 
