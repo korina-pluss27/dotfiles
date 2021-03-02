@@ -7,12 +7,18 @@ call plug#begin('~/.vim/plugged')
   Plug 'itchyny/lightline.vim'
   Plug 'ntpeters/vim-better-whitespace'
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
+  Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+  Plug 'junegunn/fzf.vim'
+  Plug 'tpope/vim-vinegar'
 
   " Language plugins
   Plug 'prettier/vim-prettier'
   Plug 'pangloss/vim-javascript'
   Plug 'maxmellon/vim-jsx-pretty'
   Plug 'elzr/vim-json'
+
+  Plug 'sheerun/vim-polyglot'
+
 call plug#end()
 
 " lightline
@@ -107,16 +113,19 @@ autocmd filetype typescript nmap <Leader>r :Prettier<CR>
 
 " ALE
 let g:ale_lint_on_save = 1
-let g:ale_fix_on_save = 1
+let g:ale_fix_on_save = 0
 let g:ale_lint_on_text_change = 'never'
 let g:ale_lint_on_enter = 0
 let g:ale_set_highlights = 1
 let g:ale_linters = {
+  \ 'javascriptreact': ['eslint'],
   \ 'javascript': ['eslint'],
   \ 'typescript': ['eslint'],
+  \ 'python': ['flake8'],
   \}
 let g:ale_fixers = {
-  \'javascript': ['prettier'],
-  \'typescript': ['prettier'],
+  \ 'javascriptreact': ['prettier'],
+  \ 'javascript': ['prettier'],
+  \ 'typescript': ['prettier'],
   \}
 
