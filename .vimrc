@@ -127,5 +127,6 @@ let g:ale_fixers = {
   \ 'javascriptreact': ['prettier'],
   \ 'javascript': ['prettier'],
   \ 'typescript': ['prettier'],
+  \ 'python': ['black', 'autoimport', 'isort'],
+  \ '*': ['remove_trailing_lines', 'trim_whitespace'],
   \}
-
